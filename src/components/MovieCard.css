@@ -1,0 +1,29 @@
+.movie-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    width: 180px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .movie-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .movie-card__poster {
+    width: 150px;
+    height: 250px;
+    border-radius: 4px;
+  }
+  
+  .movie-card__title {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .movie-card__average {
+    font-size: 1em;
+    color: #555;
+  }

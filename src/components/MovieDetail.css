@@ -1,0 +1,78 @@
+/* 
+
+  .movie-detail:hover {
+    transform: scale(1.05);
+  }
+
+   */
+  
+
+
+  .movie-detail {
+    display: grid;
+    grid-template-areas: 
+      "poster title average"
+      "poster genre genre"
+      "poster summary summary";
+    grid-gap: 10px;
+  }
+  
+  
+  .movie-detail__poster {
+    grid-area: poster;
+    background-color: #7c96a0;
+    color: white;
+    display: flex;
+    width: 1300px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-detail__title {
+    grid-area: title;
+    background-color: #99aab1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-detail__average {
+    grid-area: average;
+    background-color: #86a8b5;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-detail__genre {
+    grid-area: genre;
+    background-color: #839faa;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-detail__overview {
+    grid-area: overview;
+    background-color: #525f64;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .movie-detail > div {
+    border: 1px solid #000;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+   */

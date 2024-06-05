@@ -9,6 +9,7 @@
 
 
   .movie-detail {
+    margin: 70px;
     display: grid;
     grid-template-areas: 
       "poster title average"
@@ -26,7 +27,7 @@
     width: 1300px;
     height: auto;
     justify-content: center;
-    align-items: center;
+    align-items:center;
   }
   
   .movie-detail__title {

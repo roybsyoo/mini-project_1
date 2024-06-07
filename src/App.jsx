@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import MovieCard from './components/MovieCard';
 import MovieDetail from './components/MovieDetail';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import axios from './api/axios';
 import NavBar from './components/NavBar';
 import { styled } from 'styled-components';
 import Login from './components/LogIn';
 import Signup from './components/SignUp';
+import SearchPg from './components/SearchPg';
 
 
 
@@ -49,31 +50,39 @@ import Signup from './components/SignUp';
     </div>
     )
   }
+  const Layout = () => {
+    return (
+      <>
+      <NavBar />
+    <Outlet />
+      </>
+    )
+  }
   return ( 
-  
-    <>
-    <Container>
-    <NavBar />
-
-    
+    <>   
     
     <Routes>
-    <Route path='/' element={<MovieComponent/>}></Route>
-    <Route path='/details/:id' element={<MovieDetail/>}></Route>
-    <Route path='/Login' element={<Login/>}></Route>
-    <Route path='/Signup' element={<Signup/>}></Route>
-  </Routes>
-  </Container>
-  </>
+      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<MovieComponent />}/>
+      
+      <Route path="/details/:id" element={<MovieDetail />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/search" element={<SearchPg />} />
+     </Route> 
+     </Routes>
+</>
+
   );
 };
 
-const Container = styled.main`
-  position: relative;
-  display: block;
-  top: 70px;
-  padding: 0 calc(3.5vw + 5px);
-`
+
+// const Container = styled.main`
+//   position: relative;
+//   display: block;
+//   top: 70px;
+//   padding: 0 calc(3.5vw + 5px);
+// `
 
 
 

@@ -1,5 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+
+
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+};
+
+
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -7,16 +26,47 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [passwordchk, setPasswordchk] = useState('');
   const [error, setError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
     if (password !== passwordchk) {
-      setError('Passwords do not match. Please try again. Focus!!!!!!!!');
+      console.log(password);
+      console.log(passwordchk);
+      setError('Passwords do not match. Please try again.');
       return;
     }
-    // Perform registration logic here, such as sending data to a server
-    console.log(`Registering user: ${username}, ${email}, ${password}`);
-    setError(''); // Clear error message if passwords match
+
+    if (!emailRegex.test(email)) {
+      setEmailError('Invalid email format. Please enter a valid email.');
+      return;
+    }
+
+const auth = getAuth(app);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(`User registered: ${user.email}`);
+        setError(''); // Clear error message if registration is successful
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(`Error: ${errorCode}, Message: ${errorMessage}`);
+        setError(errorMessage); // Show error message if registration fails
+      });
+  };
+
+  const handleEmailChange = (event) => {
+    const newEmail = event.target.value;
+    setEmail(newEmail);
+    if (!emailRegex.test(newEmail)) {
+      setEmailError('Invalid email format. Please enter a valid email.');
+    } else {
+      setEmailError('');
+    }
   };
 
   return (
@@ -37,8 +87,9 @@ const Signup = () => {
             <input
               type="email"
               value={email}
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={handleEmailChange}
             />
+            {emailError && <ErrorMessage>{emailError}</ErrorMessage>}
           </label>
           <label>
             Password:

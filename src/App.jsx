@@ -20,7 +20,7 @@ import SearchPg from './components/SearchPg';
     const fetchMovies = async () => {
       try {
         const response = await axios.get('/movie/popular')
-        console.log(response)
+
         
         setMovies(response.data.results);
       } catch (error) {
@@ -75,16 +75,6 @@ import SearchPg from './components/SearchPg';
 
   );
 };
-
-
-// const Container = styled.main`
-//   position: relative;
-//   display: block;
-//   top: 70px;
-//   padding: 0 calc(3.5vw + 5px);
-// `
-
-
 
 
 

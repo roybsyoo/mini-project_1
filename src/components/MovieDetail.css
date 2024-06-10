@@ -1,70 +1,61 @@
-.movie-detail {
-  margin: 70px;
-  display: grid;
-  grid-template-areas:
-    "poster title average"
-    "poster genre genre"
-    "poster summary summary";
-  grid-gap: 10px;
 
-  @media (max-width: 1024px) {
-    grid-template-areas:
-      "poster"
-      "title"
-      "average"
-      "genre"
-      "summary";
-    grid-template-columns: 1fr;
+
+  .movie-detail {
+    margin: 70px;
+    display: grid;
+    grid-template-areas: 
+      "poster title average"
+      "poster genre genre"
+      "poster summary summary";
+    grid-gap: 10px;
   }
-}
-
-.movie-detail__poster {
-  grid-area: poster;
-  background-color: #7c96a0;
-  color: white;
-  display: flex;
-  width: 100%;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-}
-
-.movie-detail__title {
-  grid-area: title;
-  background-color: #99aab1;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.movie-detail__average {
-  grid-area: average;
-  background-color: #86a8b5;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.movie-detail__genre {
-  grid-area: genre;
-  background-color: #839faa;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.movie-detail__overview {
-  grid-area: summary;
-  background-color: #525f64;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
+  
+  
+  .movie-detail__poster {
+    grid-area: poster;
+    background-color: #7c96a0;
+    color: white;
+    display: flex;
+    width: 1000px;
+    height: auto;
+    justify-content: center;
+    align-items:center;
+  }
+  
+  .movie-detail__title {
+    grid-area: title;
+    background-color: #99aab1;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-detail__average {
+    grid-area: average;
+    background-color: #86a8b5;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-detail__genre {
+    grid-area: genre;
+    background-color: #839faa;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-detail__overview {
+    grid-area: overview;
+    background-color: #525f64;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  

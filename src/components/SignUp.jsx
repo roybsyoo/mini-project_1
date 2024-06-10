@@ -44,10 +44,11 @@ const Signup = () => {
       return;
     }
 
-const auth = getAuth(app);
+const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        navigate('/'); // Redirect to main page if registration is successful
         console.log(`User registered: ${user.email}`);
         setError(''); // Clear error message if registration is successful
       })
